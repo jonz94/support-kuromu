@@ -161,8 +161,12 @@ export function PaymentForm() {
             <Kuromu></Kuromu>
           </div>
 
-          <Button type="submit" disabled={isPending}>
+          {/* <Button type="submit" disabled={isPending}>
             前往付款
+          </Button> */}
+
+          <Button type="submit" disabled={true || isPending}>
+            前往付款 (尚未完成)
           </Button>
         </div>
       </form>
