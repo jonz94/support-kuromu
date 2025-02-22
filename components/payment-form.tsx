@@ -1,23 +1,21 @@
 'use client'
 
+import { RedirectForm } from '@/components/redirect-form'
 import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Textarea } from '@/components/ui/textarea'
+import { formSchema, type FormSchema } from '@/lib/form-schema'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useState, useTransition } from 'react'
 import { useForm } from 'react-hook-form'
-import { z } from 'zod'
-
-const formSchema = z.object({
-  opayName: z.string().min(1),
-  opayAmount: z.number().gte(50),
-  opayRemark: z.string().max(100).optional(),
-  type: z.enum(['ecpay', 'opay']),
-})
 
 export function PaymentForm() {
-  const form = useForm<z.infer<typeof formSchema>>({
+  const [redirectFormData, setRedirectFormData] = useState<FormSchema | null>(null)
+  const [isPending, startTransition] = useTransition()
+
+  const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       opayName: '',
@@ -27,8 +25,12 @@ export function PaymentForm() {
     },
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit(values: FormSchema) {
     console.log(values)
+
+    startTransition(() => {
+      setRedirectFormData(values)
+    })
   }
 
   return (
@@ -125,9 +127,13 @@ export function PaymentForm() {
         />
 
         <div className="flex justify-end">
-          <Button type="submit">前往付款</Button>
+          <Button type="submit" disabled={isPending}>
+            前往付款
+          </Button>
         </div>
       </form>
+
+      {redirectFormData && <RedirectForm formData={redirectFormData}></RedirectForm>}
     </Form>
   )
 }
