@@ -2,6 +2,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { description, title } from '@/lib/constant'
 import type { Metadata, Viewport } from 'next'
 import { Toaster } from 'sonner'
+import './fonts.css'
 import './globals.css'
 
 export const metadata: Metadata = {

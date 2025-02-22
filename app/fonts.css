@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'Cubic 11';
+  src:
+    local('Cubic 11'),
+    url('/fonts/Cubic_11.woff2') format('woff2'),
+    url('/fonts/Cubic_11.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
