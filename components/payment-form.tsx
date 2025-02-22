@@ -8,8 +8,11 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Textarea } from '@/components/ui/textarea'
 import { formSchema, type FormSchema } from '@/lib/form-schema'
 import { zodResolver } from '@hookform/resolvers/zod'
+import Image from 'next/image'
+import Link from 'next/link'
 import { useState, useTransition } from 'react'
 import { useForm } from 'react-hook-form'
+import icon from '../app/icon.png'
 
 export function PaymentForm() {
   const [redirectFormData, setRedirectFormData] = useState<FormSchema | null>(null)
@@ -35,7 +38,31 @@ export function PaymentForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-[768px] max-w-full space-y-8">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-y-8">
+        <div className="flex flex-col gap-y-4">
+          <h1 className="flex items-center gap-x-1 text-2xl font-bold">
+            <span>
+              <Image src={icon} alt="logo" height={32} />
+            </span>
+            <span>
+              贊助
+              <Link
+                href="https://www.youtube.com/channel/UC2ZWggon1NOT2TGaVUMzY7A"
+                target="_blank"
+                rel="noopener"
+                prefetch={false}
+                className="underline underline-offset-8 ring-offset-background transition-colors hover:text-primary hover:decoration-primary focus-visible:decoration-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              >
+                庫洛姆
+              </Link>
+            </span>
+          </h1>
+          <p className="text-balance text-sm">
+            贊助庫洛姆換配備買遊戲還有Kuro的罐罐! <span className="text-nowrap">٩(ˊᗜˋ )و</span>{' '}
+            你們ㄉ支持是我最大ㄉ動力，愛貓草們ㄡ💜
+          </p>
+        </div>
+
         <FormField
           control={form.control}
           name="type"
@@ -43,7 +70,11 @@ export function PaymentForm() {
             <FormItem>
               <FormLabel>付款方式</FormLabel>
               <FormControl>
-                <RadioGroup className="grid-cols-2" onValueChange={field.onChange} defaultValue={field.value}>
+                <RadioGroup
+                  className="grid-cols-1 xs:grid-cols-2"
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                >
                   <label className="relative flex cursor-pointer flex-col items-center gap-3 rounded-lg border border-input px-2 py-3 text-center shadow-sm shadow-black/5 outline-offset-2 transition-colors has-[[data-state=checked]]:border-2 has-[[data-state=checked]]:border-ring has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-ring/70">
                     <RadioGroupItem value="ecpay" className="sr-only after:absolute after:inset-0" />
                     <picture className="grid h-20 w-auto place-content-center">
@@ -93,13 +124,11 @@ export function PaymentForm() {
             <FormItem>
               <FormLabel>贊助金額</FormLabel>
               <FormControl>
-                <div className="space-y-2">
-                  <div className="relative">
-                    <Input className="peer ps-16" placeholder="50" type="text" inputMode="numeric" {...field} />
-                    <span className="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-sm text-muted-foreground peer-disabled:opacity-50">
-                      新台幣
-                    </span>
-                  </div>
+                <div className="relative">
+                  <Input className="peer ps-16" placeholder="50" type="text" inputMode="numeric" {...field} />
+                  <span className="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-sm text-muted-foreground peer-disabled:opacity-50">
+                    新台幣
+                  </span>
                 </div>
               </FormControl>
               <FormMessage />
@@ -114,7 +143,7 @@ export function PaymentForm() {
             <FormItem>
               <FormLabel>留言</FormLabel>
               <FormControl>
-                <div className="space-y-2">
+                <div>
                   <Textarea maxLength={100} rows={6} {...field} placeholder="請輸入留言" />
                   <p className="mt-2 text-right text-xs text-muted-foreground" role="status" aria-live="polite">
                     已輸入 <span className="tabular-nums">{field.value?.length ?? 0} / 100</span>
