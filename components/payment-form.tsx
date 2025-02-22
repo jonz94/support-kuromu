@@ -52,7 +52,7 @@ export function PaymentForm() {
                         alt="ecpay logo"
                       />
                     </picture>
-                    <p className="text-xs font-medium leading-none text-foreground">綠界 ECPay</p>
+                    <p className="font-medium leading-none text-foreground">綠界 ECPay</p>
                   </label>
 
                   <label className="relative flex cursor-pointer flex-col items-center gap-3 rounded-lg border border-input px-2 py-3 text-center shadow-sm shadow-black/5 outline-offset-2 transition-colors has-[[data-state=checked]]:border-2 has-[[data-state=checked]]:border-ring has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-ring/70">
@@ -63,7 +63,7 @@ export function PaymentForm() {
                         alt="opay logo"
                       />
                     </picture>
-                    <p className="text-xs font-medium leading-none text-foreground">歐付寶 OPay</p>
+                    <p className="font-medium leading-none text-foreground">歐付寶 OPay</p>
                   </label>
                 </RadioGroup>
               </FormControl>
