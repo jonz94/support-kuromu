@@ -49,7 +49,7 @@ export function PaymentForm() {
                     <picture className="grid h-20 w-auto place-content-center">
                       <img
                         src="https://www.ecpay.com.tw/Content/Themes/WebStyle20131201/images/header_logo.png"
-                        alt="opay logo"
+                        alt="ecpay logo"
                       />
                     </picture>
                     <p className="text-xs font-medium leading-none text-foreground">綠界 ECPay</p>
