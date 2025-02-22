@@ -1,5 +1,6 @@
 'use client'
 
+import { Kuromu } from '@/components/kuromu'
 import { RedirectForm } from '@/components/redirect-form'
 import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
@@ -155,7 +156,11 @@ export function PaymentForm() {
           )}
         />
 
-        <div className="flex justify-end">
+        <div className="flex max-h-16 justify-between">
+          <div className="relative bottom-20 left-0">
+            <Kuromu></Kuromu>
+          </div>
+
           <Button type="submit" disabled={isPending}>
             前往付款
           </Button>

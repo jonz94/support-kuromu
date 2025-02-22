@@ -4,7 +4,7 @@ import { PaymentForm } from '@/components/payment-form'
 export default function Home() {
   return (
     <div className="grid min-h-screen place-items-center">
-      <main className="flex size-full flex-col items-center gap-y-4">
+      <main className="flex size-full flex-col items-center gap-y-4 overflow-hidden">
         <div className="container flex justify-center px-4 py-8">
           <PaymentForm></PaymentForm>
         </div>
