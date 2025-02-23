@@ -135,7 +135,8 @@ export function PaymentForm() {
           control={form.control}
           name="opayRemark"
           render={({ field }) => (
-            <FormItem>
+            // NOTE: `z-10` to avoid overflowed image cover the textarea
+            <FormItem className="z-10">
               <FormLabel>留言</FormLabel>
               <FormControl>
                 <div>
