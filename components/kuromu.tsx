@@ -42,6 +42,10 @@ function useSelectImage() {
 
 export function Kuromu() {
   const { image, selectedIndex } = useSelectImage()
+  const [
+    makeThisComponentInvisibleWhenImageIsLoadingToAvoidLayoutShift,
+    setMakeThisComponentInvisibleWhenImageIsLoadingToAvoidLayoutShift,
+  ] = useState(true)
 
   if (!image) {
     // avoid layout shift by show an invisible div
@@ -51,7 +55,12 @@ export function Kuromu() {
   const { url, height, width } = image
 
   return (
-    <div className="relative bottom-20 left-0">
+    <div
+      className={cn(
+        'relative bottom-20 left-0',
+        makeThisComponentInvisibleWhenImageIsLoadingToAvoidLayoutShift && 'invisible',
+      )}
+    >
       <Image
         src={url}
         alt="kuromu"
@@ -59,6 +68,13 @@ export function Kuromu() {
         width={width}
         // animated images (gif) will not be optimized by next.js
         unoptimized
+        onLoad={() => {
+          // `onLoad` is a callback function that is invoked once the image is completely loaded and the placeholder has been removed.
+          // docs: https://nextjs.org/docs/app/api-reference/components/image#onload
+
+          // only show this component after the image is completely loaded
+          setMakeThisComponentInvisibleWhenImageIsLoadingToAvoidLayoutShift(false)
+        }}
         className={cn(
           'max-w-40 scale-[2] object-cover',
           selectedIndex === 0 && '-translate-x-8 -translate-y-4',
