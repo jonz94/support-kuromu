@@ -44,7 +44,8 @@ export function Kuromu() {
   const { image, selectedIndex } = useSelectImage()
 
   if (!image) {
-    return null
+    // avoid layout shift by show an invisible div
+    return <div className="invisible"></div>
   }
 
   const { url, height, width } = image
