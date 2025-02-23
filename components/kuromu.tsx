@@ -44,7 +44,7 @@ export function Kuromu() {
   const { url, height, width } = image
 
   return (
-    <>
+    <div className="relative bottom-20 left-0">
       <Image
         src={url}
         alt="kuromu"
@@ -77,6 +77,6 @@ export function Kuromu() {
       >
         <p>繪師：響響hibikii</p>
       </Link>
-    </>
+    </div>
   )
 }

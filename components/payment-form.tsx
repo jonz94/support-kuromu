@@ -152,9 +152,7 @@ export function PaymentForm() {
         />
 
         <div className="flex max-h-16 justify-between">
-          <div className="relative bottom-20 left-0">
-            <Kuromu></Kuromu>
-          </div>
+          <Kuromu></Kuromu>
 
           {/* <Button type="submit" disabled={isPending}>
             前往付款
