@@ -57,6 +57,8 @@ export function Kuromu() {
         alt="kuromu"
         height={height}
         width={width}
+        // animated images (gif) will not be optimized by next.js
+        unoptimized
         className={cn(
           'max-w-40 scale-[2] object-cover',
           selectedIndex === 0 && '-translate-x-8 -translate-y-4',
