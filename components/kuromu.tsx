@@ -5,7 +5,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
-const images = [
+interface Image {
+  url: string
+  height: number
+  width: number
+}
+
+const images: Image[] = [
   { url: '/gifs/新-庫庫2.5頭身人物-animation-sit-v1.gif', height: 1440, width: 1280 },
   { url: '/gifs/新-庫庫2.5頭身人物-animation-sleep-v2.gif', height: 1440, width: 1280 },
   { url: '/gifs/新-庫庫2.5頭身人物-animation-v1.gif', height: 1440, width: 1280 },
@@ -19,23 +25,23 @@ function random() {
   return Math.floor(Math.random() * images.length)
 }
 
-export function Kuromu() {
-  // const [selectedIndex, setSelectedIndex] = useState<number | null>(1) // for debug
+function useSelectImage() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
 
   // NOTE: use `useEffect()` to fix the "server prop did not match client prop" issue
   // credits: https://stackoverflow.com/a/66374800/9979122
   useEffect(() => {
-    // return // for debug
     const index = random()
     setSelectedIndex(index)
   }, [])
 
-  if (selectedIndex === null) {
-    return null
-  }
+  const image = selectedIndex !== null ? images[selectedIndex] : null
 
-  const image = images[selectedIndex]
+  return { image, selectedIndex }
+}
+
+export function Kuromu() {
+  const { image, selectedIndex } = useSelectImage()
 
   if (!image) {
     return null
