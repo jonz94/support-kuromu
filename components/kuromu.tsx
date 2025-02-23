@@ -61,11 +61,11 @@ export function Kuromu() {
           'max-w-40 scale-[2] object-cover',
           selectedIndex === 0 && '-translate-x-8 -translate-y-4',
           selectedIndex === 1 && '-translate-y-8',
-          selectedIndex === 2 && '-translate-x-8 -translate-y-2',
+          selectedIndex === 2 && '-translate-x-8 -translate-y-0',
           selectedIndex === 3 && '-translate-x-8 -translate-y-4',
           selectedIndex === 4 && '-translate-x-8 -translate-y-6',
-          selectedIndex === 5 && '-translate-x-8 -translate-y-4',
-          selectedIndex === 6 && '-translate-x-8 -translate-y-8',
+          selectedIndex === 5 && '-translate-x-8 -translate-y-2',
+          selectedIndex === 6 && '-translate-x-8 -translate-y-5',
         )}
       />
       <Link
@@ -76,10 +76,11 @@ export function Kuromu() {
         className={cn(
           'relative text-xs transition-colors hover:text-primary',
           selectedIndex === 1 && 'bottom-4',
+          selectedIndex === 2 && 'top-1',
           selectedIndex === 3 && 'top-6',
           selectedIndex === 4 && 'top-4',
           selectedIndex === 5 && 'top-6',
-          selectedIndex === 6 && 'top-2',
+          selectedIndex === 6 && 'top-6',
         )}
       >
         <p>繪師：響響hibikii</p>
