@@ -3,7 +3,7 @@
 import { Kuromu } from '@/components/kuromu'
 import { RedirectForm } from '@/components/redirect-form'
 import { Button } from '@/components/ui/button'
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Textarea } from '@/components/ui/textarea'
@@ -93,7 +93,6 @@ export function PaymentForm() {
                   </label>
                 </RadioGroup>
               </FormControl>
-              <FormMessage />
             </FormItem>
           )}
         />
@@ -107,7 +106,6 @@ export function PaymentForm() {
               <FormControl>
                 <Input placeholder="請輸入贊助者名稱" {...field} />
               </FormControl>
-              <FormMessage />
             </FormItem>
           )}
         />
@@ -120,13 +118,13 @@ export function PaymentForm() {
               <FormLabel>贊助金額</FormLabel>
               <FormControl>
                 <div className="relative">
-                  <Input className="peer ps-16" placeholder="50" type="text" inputMode="numeric" {...field} />
+                  <Input className="peer ps-16" type="number" inputMode="numeric" {...field} />
                   <span className="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-sm text-muted-foreground peer-disabled:opacity-50">
                     新台幣
                   </span>
                 </div>
               </FormControl>
-              <FormMessage />
+              <FormDescription>贊助金額最低為 50 元。</FormDescription>
             </FormItem>
           )}
         />
@@ -146,7 +144,6 @@ export function PaymentForm() {
                   </p>
                 </div>
               </FormControl>
-              <FormMessage />
             </FormItem>
           )}
         />
