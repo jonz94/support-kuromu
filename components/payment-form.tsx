@@ -69,7 +69,7 @@ export function PaymentForm() {
           name="type"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>付款方式</FormLabel>
+              <FormLabel>付款方式 (暫時只開放綠界)</FormLabel>
               <FormControl>
                 <RadioGroup
                   className="grid-cols-1 xs:grid-cols-2"
@@ -84,12 +84,12 @@ export function PaymentForm() {
                     <p className="font-medium leading-none text-foreground">綠界 ECPay</p>
                   </label>
 
-                  <label className="relative flex cursor-pointer flex-col items-center gap-3 rounded-lg border border-input px-2 py-3 text-center shadow-sm shadow-black/5 outline-offset-2 transition-colors has-[[data-state=checked]]:border-2 has-[[data-state=checked]]:border-ring has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-ring/70">
+                  <label className="relative flex cursor-not-allowed flex-col items-center gap-3 rounded-lg border border-input px-2 py-3 text-center shadow-sm shadow-black/5 outline-offset-2 transition-colors has-[[data-state=checked]]:border-2 has-[[data-state=checked]]:border-ring has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-ring/70">
                     <RadioGroupItem value="opay" className="sr-only after:absolute after:inset-0" disabled />
                     <picture className="grid h-20 w-auto place-content-center">
                       <img src="/opay-logo-outline.png" alt="opay logo" />
                     </picture>
-                    <p className="font-medium leading-none text-foreground">歐付寶 OPay</p>
+                    <p className="font-medium leading-none text-foreground">歐付寶 OPay (尚未設定)</p>
                   </label>
                 </RadioGroup>
               </FormControl>
