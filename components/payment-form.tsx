@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Textarea } from '@/components/ui/textarea'
 import { formSchema, type FormSchema } from '@/lib/form-schema'
+import { cn } from '@/lib/utils'
 import { zodResolver } from '@hookform/resolvers/zod'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -54,7 +55,7 @@ export function PaymentForm() {
             target="_blank"
             rel="noopener"
             prefetch={false}
-            className="absolute bottom-4 right-5 flex justify-end transition-colors hover:text-primary"
+            className={cn('absolute bottom-4 right-5 flex justify-end transition-colors hover:text-primary', 'hidden')}
           >
             繪師：響響hibikii
           </Link>
