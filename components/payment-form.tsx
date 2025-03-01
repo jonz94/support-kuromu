@@ -39,7 +39,27 @@ export function PaymentForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-y-8">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="flex max-w-2xl flex-col gap-y-8">
+        <div className="relative flex w-full flex-col">
+          <Image
+            src="/banner.gif"
+            alt="banner"
+            width={1440}
+            height={1120}
+            // animated images (gif) will not be optimized by next.js
+            unoptimized
+          />
+          <Link
+            href="https://x.com/hibikii_pixel"
+            target="_blank"
+            rel="noopener"
+            prefetch={false}
+            className="absolute bottom-4 right-5 flex justify-end transition-colors hover:text-primary"
+          >
+            繪師：響響hibikii
+          </Link>
+        </div>
+
         <div className="flex flex-col gap-y-4">
           <h1 className="flex items-center gap-x-1 text-2xl font-bold">
             <span>
