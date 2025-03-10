@@ -1,10 +1,11 @@
 'use client'
 
 import { env } from '@/env'
-import { type FormSchema } from '@/lib/form-schema'
 import { useEffect, useRef } from 'react'
 
-export function RedirectForm({ formData }: { formData: FormSchema }) {
+export function RedirectForm({ formData }: { formData: Record<string, string | number> }) {
+  console.log({ formData })
+
   const formRef = useRef<HTMLFormElement>(null)
 
   useEffect(() => {

@@ -1,15 +1,9 @@
 import { z } from 'zod'
 
 export const formSchema = z.object({
-  // TODO: temporarily ignore validation until the new payment method is fixed
-  opayName: z.string(),
-  // opayName: z.string().min(1),
-
-  // TODO: temporarily ignore validation until the new payment method is fixed
-  opayAmount: z.coerce.number(),
-  // opayAmount: z.coerce.number().min(50),
-
-  opayRemark: z.string().max(100).optional(),
+  name: z.string().min(1),
+  amount: z.coerce.number().min(50),
+  message: z.string().max(100).optional(),
   type: z.enum(['ecpay', 'opay']),
 })
 

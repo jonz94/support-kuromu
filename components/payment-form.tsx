@@ -25,27 +25,28 @@ export function PaymentForm() {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      opayName: '',
-      opayAmount: 50,
-      opayRemark: '',
+      name: '',
+      amount: 50,
+      message: '',
       type: 'ecpay',
     },
   })
 
-  function onSubmit(values: FormSchema) {
-    console.log(values)
+  function onSubmit(input: FormSchema) {
+    startTransition(async () => {
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(input),
+      })
 
-    startTransition(() => {
-      // TODO: temporarily redirect until the new payment method is fixed
-      if (values.type === 'ecpay') {
-        // eslint-disable-next-line react-compiler/react-compiler
-        window.location.href = 'https://payment.ecpay.com.tw/Broadcaster/Donate/F796CD87FFF9FC480C960D46E4DEB2CF'
-      } else {
-        window.location.href = 'https://payment.opay.tw/Broadcaster/Donate/2F3F7F395A196980CA199CEB317173F9'
-      }
+      const output = await response.json()
 
-      // TODO: temporarily comment out until the new payment method is fixed
-      // setRedirectFormData(values)
+      console.log(output)
+
+      setRedirectFormData(output)
     })
   }
 
@@ -114,7 +115,7 @@ export function PaymentForm() {
 
         <FormField
           control={form.control}
-          name="opayName"
+          name="name"
           render={({ field }) => (
             // TODO: temporarily hidden until the new payment method is fixed
             <FormItem className="hidden">
@@ -128,7 +129,7 @@ export function PaymentForm() {
 
         <FormField
           control={form.control}
-          name="opayAmount"
+          name="amount"
           render={({ field }) => (
             // TODO: temporarily hidden until the new payment method is fixed
             <FormItem className="hidden">
@@ -148,7 +149,7 @@ export function PaymentForm() {
 
         <FormField
           control={form.control}
-          name="opayRemark"
+          name="message"
           render={({ field }) => (
             // NOTE: `z-10` to avoid overflowed image cover the textarea
             // TODO: temporarily hidden until the new payment method is fixed
