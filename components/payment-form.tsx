@@ -23,18 +23,28 @@ export function PaymentForm() {
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      opayName: '',
-      opayAmount: 50,
-      opayRemark: '',
+      name: '',
+      amount: 50,
+      message: '',
       type: 'ecpay',
     },
   })
 
-  function onSubmit(values: FormSchema) {
-    console.log(values)
+  function onSubmit(input: FormSchema) {
+    startTransition(async () => {
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(input),
+      })
 
-    startTransition(() => {
-      setRedirectFormData(values)
+      const output = await response.json()
+
+      console.log(output)
+
+      setRedirectFormData(output)
     })
   }
 
@@ -102,7 +112,7 @@ export function PaymentForm() {
 
         <FormField
           control={form.control}
-          name="opayName"
+          name="name"
           render={({ field }) => (
             <FormItem>
               <FormLabel>贊助者名稱</FormLabel>
@@ -115,7 +125,7 @@ export function PaymentForm() {
 
         <FormField
           control={form.control}
-          name="opayAmount"
+          name="amount"
           render={({ field }) => (
             <FormItem>
               <FormLabel>贊助金額</FormLabel>
@@ -134,7 +144,7 @@ export function PaymentForm() {
 
         <FormField
           control={form.control}
-          name="opayRemark"
+          name="message"
           render={({ field }) => (
             // NOTE: `z-10` to avoid overflowed image cover the textarea
             <FormItem className="z-10">

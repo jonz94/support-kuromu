@@ -8,6 +8,11 @@ export const env = createEnv({
    */
   server: {
     NODE_ENV: z.enum(['development', 'test', 'production']),
+    ECPAY_API_BASE_URL: z.string().url(),
+    ECPAY_ID: z.string(),
+    ECPAY_HASH_KEY: z.string(),
+    ECPAY_HASH_IV: z.string(),
+    ECPAY_DESCRIPTION: z.string(),
   },
 
   /**
@@ -26,6 +31,11 @@ export const env = createEnv({
    */
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
+    ECPAY_API_BASE_URL: process.env.ECPAY_API_BASE_URL,
+    ECPAY_ID: process.env.ECPAY_ID,
+    ECPAY_HASH_KEY: process.env.ECPAY_HASH_KEY,
+    ECPAY_HASH_IV: process.env.ECPAY_HASH_IV,
+    ECPAY_DESCRIPTION: process.env.ECPAY_DESCRIPTION,
     NEXT_PUBLIC_PAYMENT_TOOLS_WEB_ACTION: process.env.NEXT_PUBLIC_PAYMENT_TOOLS_WEB_ACTION,
     NEXT_PUBLIC_PAYMENT_TOOLS_WEB_METHOD: process.env.NEXT_PUBLIC_PAYMENT_TOOLS_WEB_METHOD,
   },
