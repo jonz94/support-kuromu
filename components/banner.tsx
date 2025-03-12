@@ -1,6 +1,5 @@
 'use client'
 
-import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
@@ -48,7 +47,7 @@ export function Banner() {
   const { url, height, width } = image
 
   return (
-    <div className={cn('relative aspect-[9/7] h-auto w-full xs:w-72 sm:w-[38rem] md:w-[42rem]')}>
+    <div className="relative aspect-[9/7] h-auto w-full overflow-hidden xs:w-72 sm:w-[38rem] md:w-[42rem]">
       <Image
         src={url}
         alt="banner"

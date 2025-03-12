@@ -51,7 +51,7 @@ export function PaymentForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="flex max-w-2xl flex-col gap-y-8">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="flex max-w-full flex-col gap-y-8">
         <Banner></Banner>
 
         <div className="flex flex-col gap-y-4">
