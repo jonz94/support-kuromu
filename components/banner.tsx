@@ -11,6 +11,7 @@ interface Image {
 }
 
 const images: Image[] = [
+  { url: '/banners/庫庫-魔物獵人-雙刀-v2.gif', height: 1440, width: 1120 },
   { url: '/banners/新-庫庫2.5頭身人物-animation-Idle-v3.gif', height: 1440, width: 1120 },
   { url: '/banners/新-庫庫2.5頭身人物-animation-sleep-v3.gif', height: 1440, width: 1120 },
   { url: '/banners/新-庫庫2.5頭身人物-animation-walk-v7.gif', height: 1440, width: 1120 },
