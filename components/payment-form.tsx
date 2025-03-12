@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Textarea } from '@/components/ui/textarea'
 import { formSchema, type FormSchema } from '@/lib/form-schema'
+import { cn } from '@/lib/utils'
 import { zodResolver } from '@hookform/resolvers/zod'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -17,6 +18,7 @@ import { useForm } from 'react-hook-form'
 import icon from '../app/icon.png'
 
 export function PaymentForm() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [redirectFormData, setRedirectFormData] = useState<FormSchema | null>(null)
   const [isPending, startTransition] = useTransition()
 
@@ -34,7 +36,16 @@ export function PaymentForm() {
     console.log(values)
 
     startTransition(() => {
-      setRedirectFormData(values)
+      // TODO: temporarily redirect until the new payment method is fixed
+      if (values.type === 'ecpay') {
+        // eslint-disable-next-line react-compiler/react-compiler
+        window.location.href = 'https://payment.ecpay.com.tw/Broadcaster/Donate/F796CD87FFF9FC480C960D46E4DEB2CF'
+      } else {
+        window.location.href = 'https://payment.opay.tw/Broadcaster/Donate/2F3F7F395A196980CA199CEB317173F9'
+      }
+
+      // TODO: temporarily comment out until the new payment method is fixed
+      // setRedirectFormData(values)
     })
   }
 
@@ -71,7 +82,8 @@ export function PaymentForm() {
           control={form.control}
           name="type"
           render={({ field }) => (
-            <FormItem>
+            // TODO: temporarily z-10 & pb-12 until the new payment method is fixed
+            <FormItem className="z-10 pb-12">
               <FormLabel>付款方式</FormLabel>
               <FormControl>
                 <RadioGroup
@@ -104,7 +116,8 @@ export function PaymentForm() {
           control={form.control}
           name="opayName"
           render={({ field }) => (
-            <FormItem>
+            // TODO: temporarily hidden until the new payment method is fixed
+            <FormItem className="hidden">
               <FormLabel>贊助者名稱</FormLabel>
               <FormControl>
                 <Input placeholder="請輸入贊助者名稱" {...field} />
@@ -117,7 +130,8 @@ export function PaymentForm() {
           control={form.control}
           name="opayAmount"
           render={({ field }) => (
-            <FormItem>
+            // TODO: temporarily hidden until the new payment method is fixed
+            <FormItem className="hidden">
               <FormLabel>贊助金額</FormLabel>
               <FormControl>
                 <div className="relative">
@@ -137,7 +151,8 @@ export function PaymentForm() {
           name="opayRemark"
           render={({ field }) => (
             // NOTE: `z-10` to avoid overflowed image cover the textarea
-            <FormItem className="z-10">
+            // TODO: temporarily hidden until the new payment method is fixed
+            <FormItem className={cn('z-10', ' hidden')}>
               <FormLabel>留言</FormLabel>
               <FormControl>
                 <div>
