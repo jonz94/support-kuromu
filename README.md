@@ -10,10 +10,22 @@
     - <img src="./app/icon.png" width="64" height="64" alt="logo">
     - 繪製的貼圖作為了本網站的 [Logo](./app/icon.png)
 - 楔六葉 ([@sixleaf](https://x.com/sixleafs))
-    - 製作的 [整合站台](https://hub.docker.com/r/sixleafs/payment-tools-web) 以及 [斗內通知小工具](https://gitlab.com/thesixleafs/setup/-/wikis/home)
+    - 製作的 [整合站台](https://gitlab.com/thesixleafs/payment-tools-web) 以及 [斗內通知小工具](https://gitlab.com/thesixleafs/setup/-/wikis/home)
 - 俐方體11號
     - 免費開源的 11×11 中文點陣體
     - https://github.com/ACh-K/Cubic-11
+
+## 授權條款
+
+- 本專案的程式原始碼依 [MIT License](./LICENSE) 釋出
+- 中文點陣字體 [俐方體11號](https://github.com/ACh-K/Cubic-11) 依 [SIL Open Font License](https://github.com/ACh-K/Cubic-11/blob/main/OFL.txt) 釋出
+- 專案中使用的藝術創作，其著作權歸原作者所有，除非另有明確授權
+
+## License
+
+- The Source code is released under the [MIT License](./LICENSE)
+- The font [Cubic 11](https://github.com/ACh-K/Cubic-11) is released under the [SIL Open Font License](https://github.com/ACh-K/Cubic-11/blob/main/OFL.txt)
+- All the artwork used in this project remains the copyright of the original creators unless explicitly licensed otherwise
 
 [^YouTube]: https://www.youtube.com/@KuromuOno
 
