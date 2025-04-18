@@ -5,7 +5,10 @@ export const formSchema = z.object({
   opayName: z.string(),
   // opayName: z.string().min(1),
 
-  opayAmount: z.preprocess((input) => parseInt(String(input ?? 0), 10), z.number().gte(50)),
+  // TODO: temporarily ignore validation until the new payment method is fixed
+  opayAmount: z.coerce.number(),
+  // opayAmount: z.coerce.number().min(50),
+
   opayRemark: z.string().max(100).optional(),
   type: z.enum(['ecpay', 'opay']),
 })
