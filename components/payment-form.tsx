@@ -22,7 +22,7 @@ export function PaymentForm() {
   const [redirectFormData, setRedirectFormData] = useState<FormSchema | null>(null)
   const [isPending, startTransition] = useTransition()
 
-  const form = useForm<FormSchema>({
+  const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
       opayName: '',
