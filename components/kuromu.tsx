@@ -76,7 +76,7 @@ export function Kuromu() {
           setMakeThisComponentInvisibleWhenImageIsLoadingToAvoidLayoutShift(false)
         }}
         className={cn(
-          'max-w-40 scale-[2] object-cover',
+          'max-w-40 scale-200 object-cover',
           selectedIndex === 0 && '-translate-x-8 -translate-y-4',
           selectedIndex === 1 && '-translate-y-8',
           selectedIndex === 2 && '-translate-x-8 -translate-y-0',

@@ -41,13 +41,13 @@ export function Banner() {
 
   if (!image) {
     // avoid layout shift by show an invisible div
-    return <div className="invisible aspect-[9/7] h-auto w-full xs:w-72 sm:w-[38rem] md:w-[42rem]"></div>
+    return <div className="invisible aspect-9/7 h-auto w-full xs:w-72 sm:w-[38rem] md:w-[42rem]"></div>
   }
 
   const { url, height, width } = image
 
   return (
-    <div className="relative aspect-[9/7] h-auto w-full overflow-hidden xs:w-72 sm:w-[38rem] md:w-[42rem]">
+    <div className="relative aspect-9/7 h-auto w-full overflow-hidden xs:w-72 sm:w-[38rem] md:w-[42rem]">
       <Image
         src={url}
         alt="banner"

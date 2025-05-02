@@ -66,7 +66,7 @@ export function PaymentForm() {
                 target="_blank"
                 rel="noopener"
                 prefetch={false}
-                className="underline underline-offset-8 ring-offset-background transition-colors hover:text-primary hover:decoration-primary focus-visible:decoration-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                className="underline underline-offset-8 ring-offset-background transition-colors hover:text-primary hover:decoration-primary focus-visible:decoration-primary focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               >
                 庫洛姆
               </Link>
@@ -91,7 +91,7 @@ export function PaymentForm() {
                   onValueChange={field.onChange}
                   defaultValue={field.value}
                 >
-                  <label className="relative flex cursor-pointer flex-col items-center gap-3 rounded-lg border border-input px-2 py-3 text-center shadow-sm shadow-black/5 outline-offset-2 transition-colors has-[[data-state=checked]]:border-2 has-[[data-state=checked]]:border-ring has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-ring/70">
+                  <label className="relative flex cursor-pointer flex-col items-center gap-3 rounded-lg border border-input px-2 py-3 text-center shadow-xs shadow-black/5 outline-offset-2 transition-colors has-data-[state=checked]:border-2 has-data-[state=checked]:border-ring has-focus-visible:outline-2 has-focus-visible:outline-ring/70">
                     <RadioGroupItem value="ecpay" className="sr-only after:absolute after:inset-0" />
                     <picture className="grid h-20 w-auto place-content-center">
                       <img src="/ecpay-logo-outline.png" alt="ecpay logo" />
@@ -99,7 +99,7 @@ export function PaymentForm() {
                     <p className="font-medium leading-none text-foreground">綠界 ECPay</p>
                   </label>
 
-                  <label className="relative flex cursor-pointer flex-col items-center gap-3 rounded-lg border border-input px-2 py-3 text-center shadow-sm shadow-black/5 outline-offset-2 transition-colors has-[[data-state=checked]]:border-2 has-[[data-state=checked]]:border-ring has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-ring/70">
+                  <label className="relative flex cursor-pointer flex-col items-center gap-3 rounded-lg border border-input px-2 py-3 text-center shadow-xs shadow-black/5 outline-offset-2 transition-colors has-data-[state=checked]:border-2 has-data-[state=checked]:border-ring has-focus-visible:outline-2 has-focus-visible:outline-ring/70">
                     <RadioGroupItem value="opay" className="sr-only after:absolute after:inset-0" />
                     <picture className="grid h-20 w-auto place-content-center">
                       <img src="/opay-logo-outline.png" alt="opay logo" />
